@@ -24,6 +24,10 @@ export class UserService {
     return this.currentUserSubject.value;
   }
 
+  loggedIn(){
+    return !!localStorage.getItem('currentUser');
+  }
+
   public login(form = {}){
 
     return this.http.post(environment.basicUrl + 'auth/signin',form

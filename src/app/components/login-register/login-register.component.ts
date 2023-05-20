@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,7 +20,7 @@ export class LoginRegisterComponent implements OnInit {
   loading: boolean = false;
   errorMessage: String = "";
   errorText: String = "";
-  constructor(private fb: FormBuilder, private userService: UserService, private cookieService: CookieService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private cookieService: CookieService,private route :Router) {
 
     
     this.RegisterForm = this.fb.group({
@@ -67,8 +68,8 @@ export class LoginRegisterComponent implements OnInit {
 
     this.userService.register(form).subscribe(resp => {
 
-
       this.loading = false
+      this.switch()
 
     }, error => {
 
@@ -105,7 +106,7 @@ export class LoginRegisterComponent implements OnInit {
     this.userService.login(form).subscribe(resp => {
 
       this.loading = false
-
+      this.route.navigate(["/home/charts"]);
 
     }, error => {
 

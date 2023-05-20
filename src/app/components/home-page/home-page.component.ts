@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -20,9 +21,14 @@ export class HomePageComponent implements OnInit {
     this.search = !this.search;
   }
 
-  constructor() { }
+  constructor(private route : Router) { }
 
   ngOnInit(): void {
   }
 
+
+  logout(){
+      localStorage.clear();
+      this.route.navigate(["login-register"])
+      }
 }

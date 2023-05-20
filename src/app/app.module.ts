@@ -9,6 +9,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { ChartsComponent } from './components/charts/charts.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     HomePageComponent,
     LoginRegisterComponent,
-
+    ChartsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
